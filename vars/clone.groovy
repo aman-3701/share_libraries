@@ -1,4 +1,5 @@
-def clone(url , branch){
- url : "${url}" ,
- branch: "${branch}"
+def clone(){
+ // url : "${url}" ,
+ // branch: "${branch}"
+ echo "hello"
 }
