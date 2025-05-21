@@ -1,5 +1,3 @@
-def clone(){
- // url : "${url}" ,
- // branch: "${branch}"
-    echo "hello"
+def call(String url, String branch){
+  git url: "${url}", branch: "${branch}"
 }
