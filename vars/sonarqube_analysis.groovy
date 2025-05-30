@@ -4,10 +4,24 @@
 //   }
 // }
 
+// def call(String sonarQubeAPI, String projectName, String projectKey) {
+//     withSonarQubeEnv(sonarQubeAPI) {
+//         sh """
+//             sonar-scanner \
+//             -Dsonar.projectName=${projectName} \
+//             -Dsonar.projectKey=${projectKey} \
+//             -Dsonar.sources=. \
+//             -X
+//         """
+//     }
+// }
+
+
 def call(String sonarQubeAPI, String projectName, String projectKey) {
     withSonarQubeEnv(sonarQubeAPI) {
+        def scannerHome = env.SONAR_HOME
         sh """
-            sonar-scanner \
+            ${scannerHome}/bin/sonar-scanner \
             -Dsonar.projectName=${projectName} \
             -Dsonar.projectKey=${projectKey} \
             -Dsonar.sources=. \
@@ -15,4 +29,3 @@ def call(String sonarQubeAPI, String projectName, String projectKey) {
         """
     }
 }
-
